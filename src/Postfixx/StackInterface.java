@@ -1,11 +1,9 @@
 package Postfixx;
 
-import java.util.EmptyStackException;
-
 public interface StackInterface<T> {
     void push(T element);
-    T pop() throws EmptyStackException;
-    T peek() throws EmptyStackException;
+    T pop();
+    T peek();
     boolean isEmpty();
     int size();
 }

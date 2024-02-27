@@ -1,44 +1,42 @@
 package Postfixx;
 
 import java.util.ArrayList;
-import java.util.EmptyStackException;
-import java.util.List;
 
 public class ArrayListStack<T> implements StackInterface<T> {
-    private List<T> list;
+    private ArrayList<T> stack;
 
     public ArrayListStack() {
-        list = new ArrayList<>();
+        stack = new ArrayList<>();
     }
 
     @Override
     public void push(T element) {
-        list.add(element);
+        stack.add(element);
     }
 
     @Override
-    public T pop() throws EmptyStackException {
+    public T pop() {
         if (isEmpty()) {
-            throw new EmptyStackException();
+            throw new IllegalStateException("Error: La pila está vacía");
         }
-        return list.remove(size() - 1);
+        return stack.remove(stack.size() - 1);
     }
 
     @Override
-    public T peek() throws EmptyStackException {
+    public T peek() {
         if (isEmpty()) {
-            throw new EmptyStackException();
+            throw new IllegalStateException("Error: La pila está vacía");
         }
-        return list.get(size() - 1);
+        return stack.get(stack.size() - 1);
     }
 
     @Override
     public boolean isEmpty() {
-        return list.isEmpty();
+        return stack.isEmpty();
     }
 
     @Override
     public int size() {
-        return list.size();
+        return stack.size();
     }
 }

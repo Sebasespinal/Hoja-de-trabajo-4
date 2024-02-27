@@ -1,6 +1,5 @@
 package Postfixx;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -56,7 +55,8 @@ public class PostfixCalculator implements CalculatorInterface {
         }
     }
 
-    public static void main(String[] args) {
+    @SuppressWarnings("unchecked")
+	public static void main(String[] args) {
         System.out.println("Calculadora de expresiones en notación Postfix\n");
 
         // Crear la implementación deseada de la pila según la entrada del usuario
@@ -69,10 +69,10 @@ public class PostfixCalculator implements CalculatorInterface {
                 stack = new VectorStack<>();
                 break;
             case "SinglyLinkedList":
-                stack = new SinglyLinkedList<>();
+            	stack = (StackInterface<Integer>) new SinglyLinkedList<Integer>();
                 break;
             case "DoublyLinkedList":
-                stack = new DoublyLinkedList<>();
+            	stack = (StackInterface<Integer>) new DoublyLinkedList<Integer>();
                 break;
             default:
                 throw new IllegalArgumentException("Error: Implementación de pila no válida");
@@ -97,3 +97,4 @@ public class PostfixCalculator implements CalculatorInterface {
         }
     }
 }
+
